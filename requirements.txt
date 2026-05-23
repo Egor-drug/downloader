@@ -15,5 +15,5 @@ requests==2.32.3
 requests-file==2.1.0
 six==1.17.0
 SQLAlchemy==2.0.43
-aiodns==3.2.0
 Telethon==1.40.0
+# aiodns==3.2.0 - ПОЛНОСТЬЮ УДАЛИТЬ ЭТУ СТРОКУ
