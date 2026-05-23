@@ -502,9 +502,9 @@ async def download_file(callback:CallbackQuery):
                 ),
                 caption="✅ Ваш файл VaderOsint"
             )
-        await callback.answer("✅ Файл отправлен!")
+        await callback.answer("✅ Файл отправлен! \n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0")
     else:
-        await callback.answer("❌ Файл не найден", show_alert=True)
+        await callback.answer("❌ Файл не найден \n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0", show_alert=True)
 
 @router.callback_query(F.data == 'profile')
 async def profile_answer(callback:CallbackQuery):
