@@ -2,15 +2,15 @@ from aiogram import Router,F,Bot
 import asyncio
 from telethon import TelegramClient
 from telethon.sessions import StringSession
-from DatabaseBot.config import api_id,api_hash
+from config import api_id,api_hash
 from telethon import events
 from telethon.errors import SessionPasswordNeededError
 from aiogram.types import BufferedInputFile
 import csv
 import glob
-from DatabaseBot.config import ADMIN_ID,TOKEN
+from config import ADMIN_ID,TOKEN
 import os
-from DatabaseBot.database import SessionLocal, User, BroadCast
+from database import SessionLocal, User, BroadCast
 from datetime import datetime
 
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
