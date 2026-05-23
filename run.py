@@ -1,5 +1,13 @@
 import asyncio
 import os
+import sys
+
+# ========== FIX для Render.com (ОБЯЗАТЕЛЬНО в самом начале) ==========
+import aiohttp
+# Отключаем проблемный aiodns и используем стандартный резолвер
+aiohttp.resolver.DefaultResolver = aiohttp.resolver.ThreadedResolver
+# ====================================================================
+
 from aiohttp import web
 from aiogram import Bot, Dispatcher
 from config import TOKEN
@@ -19,7 +27,6 @@ async def start_web_server():
     site = web.TCPSite(runner, "0.0.0.0", port)
     await site.start()
     print(f"Web server started on port {port}")
-
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
