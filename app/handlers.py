@@ -295,7 +295,7 @@ async def process_successful_payment(message: Message):
 
 @router.callback_query(F.data == 'download')
 async def download_file(callback:CallbackQuery):
-    file_path = "VaderOsint.zip"  # или путь к EXE
+    file_path = "Vader.zip"  # или путь к EXE
 
     if os.path.exists(file_path):
         with open(file_path, 'rb') as file:
