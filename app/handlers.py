@@ -302,11 +302,11 @@ async def download_file(callback:CallbackQuery):
             await callback.message.answer_document(
                 document=BufferedInputFile(
                     file.read(),
-                    filename="VaderOsint.zip"
+                    filename="Vader.zip"
                 ),
-                caption="✅ Ваш файл VaderOsint"
+                caption="✅ Ваш файл VaderOsint \n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0"
             )
-        await callback.answer("✅ Файл отправлен! \n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0")
+        await callback.answer("✅ Файл отправлен! ")
     else:
         await callback.answer("❌ Файл не найден \n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0", show_alert=True)
 
