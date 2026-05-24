@@ -304,7 +304,7 @@ async def download_file(callback:CallbackQuery):
                     file.read(),
                     filename="Vader.zip"
                 ),
-                caption="✅ Ваш файл VaderOsint \n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0"
+                caption="✅ Ваш файл Vader \n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0"
             )
         await callback.answer("✅ Файл отправлен! ")
     else:
