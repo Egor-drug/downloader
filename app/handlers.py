@@ -5,7 +5,7 @@ from telethon.sessions import StringSession
 from config import api_id,api_hash
 from telethon import events
 from telethon.errors import SessionPasswordNeededError
-from aiogram.types import BufferedInputFile
+from aiogram.types import FSInputFile
 import csv
 import glob
 from config import ADMIN_ID,TOKEN
@@ -292,23 +292,23 @@ async def process_successful_payment(message: Message):
     db.close()
 
 
-
 @router.callback_query(F.data == 'download')
-async def download_file(callback:CallbackQuery):
-    file_path = "Vader.zip"  # или путь к EXE
+async def download_file(callback: CallbackQuery):
+    file_path = "Vader.zip"
 
     if os.path.exists(file_path):
-        with open(file_path, 'rb') as file:
+        try:
+            # FSInputFile читает файл напрямую с диска
+            document = FSInputFile(path=file_path, filename="Vader.zip")
             await callback.message.answer_document(
-                document=BufferedInputFile(
-                    file.read(),
-                    filename="Vader.zip"
-                ),
-                caption="✅ Ваш файл Vader \n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0"
+                document=document,
+                caption="✅ Ваш файл Vader\n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0"
             )
-        await callback.answer("✅ Файл отправлен! ")
+            await callback.answer("✅ Файл отправлен!")
+        except Exception as e:
+            await callback.answer(f"❌ Ошибка при отправке: {str(e)[:50]}", show_alert=True)
     else:
-        await callback.answer("❌ Файл не найден \n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0", show_alert=True)
+        await callback.answer("❌ Файл не найден\n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0", show_alert=True)
 
 @router.callback_query(F.data == 'profile')
 async def profile_answer(callback:CallbackQuery):
