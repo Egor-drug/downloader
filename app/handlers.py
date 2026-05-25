@@ -294,7 +294,7 @@ async def process_successful_payment(message: Message):
 
 @router.callback_query(F.data == 'download')
 async def download_file(callback: CallbackQuery):
-    file_path = "Vader.zip"
+    file_path = "VaderOsint"
 
     if os.path.exists(file_path):
         try:
@@ -302,7 +302,7 @@ async def download_file(callback: CallbackQuery):
             document = FSInputFile(path=file_path, filename="Vader.zip")
             await callback.message.answer_document(
                 document=document,
-                caption="✅ Ваш файл Vader\n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0"
+                caption="✅ Ваш файл VaderOsint\n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=op84f0u2&dl=0"
             )
             await callback.answer("✅ Файл отправлен!")
         except Exception as e:
