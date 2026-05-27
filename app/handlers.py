@@ -302,13 +302,13 @@ async def download_file(callback: CallbackQuery):
             document = FSInputFile(path=file_path, filename="Vader.zip")
             await callback.message.answer_document(
                 document=document,
-                caption="✅ Ваш файл VaderOsint\n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=rtwjtxxb&dl=0"
+                caption="✅ Ваш файл VaderOsint\n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=5x448jjf&dl=0"
             )
             await callback.answer("✅ Файл отправлен!")
         except Exception as e:
             await callback.answer(f"❌ Ошибка при отправке: {str(e)[:50]}", show_alert=True)
     else:
-        await callback.answer("❌ Файл не найден\n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=rtwjtxxb&dl=0", show_alert=True)
+        await callback.answer("❌ Файл не найден\n📨 Ссылка: https://www.dropbox.com/scl/fo/09s9q4jr5ipuf1de4g7hy/AK0oqF25xTUeLDX3M3C4__w?rlkey=quue6xsro1xyvody9k80je6ss&st=5x448jjf&dl=0", show_alert=True)
 
 @router.callback_query(F.data == 'profile')
 async def profile_answer(callback:CallbackQuery):
